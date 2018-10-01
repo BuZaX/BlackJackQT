@@ -19,7 +19,7 @@
      <rect>
       <x>260</x>
       <y>355</y>
-      <width>128</width>
+      <width>152</width>
       <height>36</height>
      </rect>
     </property>
@@ -49,7 +49,7 @@
         </font>
        </property>
        <property name="text">
-        <string>$</string>
+        <string> </string>
        </property>
       </widget>
      </item>
@@ -160,6 +160,18 @@
       <width>521</width>
       <height>131</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>521</width>
+      <height>131</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>521</width>
+      <height>131</height>
+     </size>
     </property>
     <property name="font">
      <font>

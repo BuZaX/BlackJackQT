@@ -90,18 +90,22 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     shuffle(largeDeck, 312);
 
-//        largeDeck[0] = "Ad";
-//        largeDeck[1] = "2s";
-//        largeDeck[2] = "Ks";
-    //    largeDeck[3] = "2d";
-    //    largeDeck[4] = "2s";
-    //    largeDeck[5] = "2c";
-    //    largeDeck[6] = "2c";
-    //    largeDeck[7] = "2c";
-    //    largeDeck[8] = "2c";
-    //    largeDeck[9] = "2c";
+//        largeDeck[0] = "2d";
+//        largeDeck[1] = "Ks";
+//        largeDeck[2] = "2s";
+//        largeDeck[3] = "4d";
+//        largeDeck[4] = "2s";
+//        largeDeck[5] = "2c";
+//        largeDeck[6] = "2c";
+//        largeDeck[7] = "2c";
+//        largeDeck[8] = "Ac";
+//        largeDeck[9] = "Ac";
+//        largeDeck[10] = "Ad";
+//        largeDeck[11] = "Ad";
+//        largeDeck[12] = "Ad";
+//        largeDeck[13] = "As";
 
-    ui -> money_label -> setText(QString::number(p1.getMoney()));
+    ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
     ui -> stayButton -> setEnabled(false);
     ui -> hitButton -> setEnabled(false);
     media -> setMedia(QUrl("qrc:/resources/resources/cardSound.mp3"));
@@ -225,7 +229,7 @@ void MainWindow::on_betButton_clicked()
 
     ui -> betEdit -> setMaximum(p1.getMoney());
     p1.placeBet(ui -> betEdit -> text().toInt());
-    ui -> money_label -> setText(QString::number(p1.getMoney()));
+    ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
 
     if (p1.getCardNo() != 0)
     {
@@ -234,7 +238,7 @@ void MainWindow::on_betButton_clicked()
 
     if (p1.getBet() <= (p1.getMoney() + p1.getBet() ))
     {
-        ui -> money_label -> setText(QString::number(p1.getMoney()));
+        ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
 
         p1.setCardString(largeDeck[p1.getCardNo()]);
         p1.setCardSum(p1.cardValue(p1.getCardString()).value);
@@ -264,7 +268,7 @@ void MainWindow::on_betButton_clicked()
 
             ui -> labelCenter -> setStyleSheet(QStringLiteral("QLabel{color: rgb(0, 0, 170);}"));
             p1.setMoney(p1.getBet(), 2.5);
-            ui -> money_label -> setText(QString::number(p1.getMoney()));
+            ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
             ui -> betEdit -> setMaximum(p1.getMoney());
 
             ui -> stayButton -> setEnabled(false);
@@ -328,7 +332,7 @@ void MainWindow::on_stayButton_clicked()
             ui -> labelCenter -> setStyleSheet(QStringLiteral("QLabel{color: rgb(0, 0, 170);}"));
             p1.setMoney(p1.getBet(), 2);
             ui -> money_label -> clear();
-            ui -> money_label -> setText(QString::number(p1.getMoney()));
+            ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
             ui -> betEdit -> setMaximum(p1.getMoney());
 
             ui -> stayButton -> setEnabled(false);
@@ -378,7 +382,7 @@ void MainWindow::on_stayButton_clicked()
             ui -> labelCenter -> setText("Dealer busted!");
             p1.setMoney(p1.getBet(), 2);
             ui -> money_label -> clear();
-            ui -> money_label -> setText(QString::number(p1.getMoney()));
+            ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
             ui -> betEdit -> setMaximum(p1.getMoney());
 
             ui -> stayButton -> setEnabled(false);
@@ -403,7 +407,7 @@ void MainWindow::on_stayButton_clicked()
                 ui -> labelCenter -> setStyleSheet(QStringLiteral("QLabel{color: rgb(0, 0, 170);}"));
                 p1.setMoney(p1.getBet(), 2);
                 ui -> money_label -> clear();
-                ui -> money_label -> setText(QString::number(p1.getMoney()));
+                ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
                 ui -> betEdit -> setMaximum(p1.getMoney());
 
                 ui -> stayButton -> setEnabled(false);
@@ -456,7 +460,7 @@ void MainWindow::on_resetButton_clicked()
     ui -> labelCenter -> setText(" ");
     ui -> betEdit -> setMaximum(p1.getMoney());
     ui -> betEdit -> setValue(100);
-    ui -> money_label -> setText(QString::number(p1.getMoney()));
+    ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
     ui -> betButton -> setEnabled(true);
     dealer.resetCardSum();
 }
@@ -464,6 +468,7 @@ void MainWindow::on_resetButton_clicked()
 void MainWindow::on_infoButton_clicked()
 {
     information info;
+    info.setFixedSize(info.size());
     info.setModal(true);
     info.exec();
 }

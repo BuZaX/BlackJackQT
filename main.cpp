@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Black Jack v1.0");
     qApp->setWindowIcon(QIcon(":/resources/diamond.PNG"));
     MainWindow w;
+    w.setFixedSize(w.size());
 
     w.show();
     return app.exec();
