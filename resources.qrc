@@ -55,8 +55,15 @@
         <file>resources/Qd.gif</file>
         <file>resources/Qh.gif</file>
         <file>resources/Qs.gif</file>
-        <file>resources/Sd.gif</file>
         <file>resources/xx.gif</file>
         <file>resources/xx.png</file>
+        <file>resources/Jh.gif</file>
+        <file>resources/cardSound.mp3</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>resources/green1.jpg</file>
+        <file>resources/green2.jpg</file>
+        <file>resources/red.jpg</file>
+        <file>resources/diamond.PNG</file>
     </qresource>
 </RCC>

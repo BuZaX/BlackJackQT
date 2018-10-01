@@ -6,129 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>600</height>
+    <width>499</width>
+    <height>575</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Black Jack v1.0</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>440</y>
-      <width>741</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label1">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label2">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label3">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label4">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label5">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label6">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>741</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_7">
-     <item>
-      <widget class="QLabel" name="label11">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label22">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label33">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label44">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label55">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label6_2">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>310</y>
+      <x>260</x>
+      <y>355</y>
       <width>128</width>
-      <height>26</height>
+      <height>36</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -157,17 +49,19 @@
         </font>
        </property>
        <property name="text">
-        <string> </string>
+        <string>$</string>
        </property>
       </widget>
      </item>
     </layout>
+    <zorder>money_label</zorder>
+    <zorder>static_money_label</zorder>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>410</y>
+      <x>250</x>
+      <y>475</y>
       <width>239</width>
       <height>25</height>
      </rect>
@@ -192,17 +86,20 @@
        <property name="text">
         <string>Hit</string>
        </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>350</y>
-      <width>131</width>
-      <height>34</height>
+      <x>260</x>
+      <y>400</y>
+      <width>126</width>
+      <height>71</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -220,27 +117,601 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="betEdit">
+      <widget class="QSpinBox" name="betEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>90</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Consolas</family>
          <pointsize>16</pointsize>
         </font>
        </property>
+       <property name="minimum">
+        <number>5</number>
+       </property>
+       <property name="maximum">
+        <number>500</number>
+       </property>
+       <property name="singleStep">
+        <number>5</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
       </widget>
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>758</width>
-     <height>21</height>
-    </rect>
-   </property>
+   <widget class="QLabel" name="labelCenter">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>140</y>
+      <width>521</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label7">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>320</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label8">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>300</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label9">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>280</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label10">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>260</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label12">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>240</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label12_2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>220</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label77">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label88">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label99">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label1010">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label1111">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label1212">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelBackground">
+    <property name="geometry">
+     <rect>
+      <x>-30</x>
+      <y>-3</y>
+      <width>612</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/resources/green1.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="indent">
+     <number>-3</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label1">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>440</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>420</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label3">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>400</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label4">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>380</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label5">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>360</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label6">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>340</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label11">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label22">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label33">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label44">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label55">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label66">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>12</y>
+      <width>71</width>
+      <height>96</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>71</width>
+      <height>96</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resetButton">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>400</y>
+      <width>75</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset game</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="infoButton">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>360</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Information</string>
+    </property>
+   </widget>
+   <zorder>label11</zorder>
+   <zorder>labelBackground</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>labelCenter</zorder>
+   <zorder>label1</zorder>
+   <zorder>label2</zorder>
+   <zorder>label3</zorder>
+   <zorder>label4</zorder>
+   <zorder>label5</zorder>
+   <zorder>label6</zorder>
+   <zorder>label22</zorder>
+   <zorder>label33</zorder>
+   <zorder>label44</zorder>
+   <zorder>label55</zorder>
+   <zorder>label66</zorder>
+   <zorder>label7</zorder>
+   <zorder>label8</zorder>
+   <zorder>label9</zorder>
+   <zorder>label10</zorder>
+   <zorder>label12</zorder>
+   <zorder>label12_2</zorder>
+   <zorder>label77</zorder>
+   <zorder>label88</zorder>
+   <zorder>label99</zorder>
+   <zorder>label1010</zorder>
+   <zorder>label1111</zorder>
+   <zorder>label1212</zorder>
+   <zorder>resetButton</zorder>
+   <zorder>infoButton</zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -253,6 +724,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += core gui widgets \
+            multimedia
 
 TARGET = BlackJack
 TEMPLATE = app
@@ -25,14 +26,17 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    player.cpp
+    player.cpp \
+    information.cpp
 
 HEADERS += \
         mainwindow.h \
-    player.h
+    player.h \
+    information.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    information.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
