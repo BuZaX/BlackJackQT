@@ -49,49 +49,13 @@
         </font>
        </property>
        <property name="text">
-        <string> </string>
+        <string/>
        </property>
       </widget>
      </item>
     </layout>
     <zorder>money_label</zorder>
     <zorder>static_money_label</zorder>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>475</y>
-      <width>239</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QPushButton" name="stayButton">
-       <property name="text">
-        <string>Stay</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="betButton">
-       <property name="text">
-        <string>Bet</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="hitButton">
-       <property name="text">
-        <string>Hit</string>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
@@ -471,7 +435,10 @@
      </size>
     </property>
     <property name="text">
-     <string/>
+     <string> </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
    <widget class="QLabel" name="label3">
@@ -693,6 +660,83 @@
      <string>Information</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_doubleDown">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>390</y>
+      <width>96</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>96</width>
+      <height>71</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="betButton">
+    <property name="geometry">
+     <rect>
+      <x>332</x>
+      <y>476</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Bet</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="hitButton">
+    <property name="geometry">
+     <rect>
+      <x>411</x>
+      <y>477</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hit</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>251</x>
+      <y>476</y>
+      <width>77</width>
+      <height>54</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="stayButton">
+       <property name="text">
+        <string>Stay</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="doubleDownButton">
+       <property name="text">
+        <string>Double down</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>label11</zorder>
    <zorder>labelBackground</zorder>
    <zorder>layoutWidget</zorder>
@@ -724,6 +768,8 @@
    <zorder>label1212</zorder>
    <zorder>resetButton</zorder>
    <zorder>infoButton</zorder>
+   <zorder>doubleDownButton</zorder>
+   <zorder>label_doubleDown</zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

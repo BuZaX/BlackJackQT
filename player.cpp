@@ -5,6 +5,7 @@
 #include <QCoreApplication>
 #include <mainwindow.h>
 
+// set card name like "As", "2d", "Jh" etc...
 void Player::setCardString (QString c)
 {
     cardString = c;
@@ -15,9 +16,18 @@ void Player::setCardSum (int sum)
     cardSum = cardSum + sum;
 }
 
-void Player::setMoney (int bet, double coef)
+// set money depending if "double down" was pressed or not.
+void Player::setMoney (int bet, double coef, bool extraBetState)
 {
-    money = money + coef*bet;
+    if (extraBetState == false)
+    {
+        money = money + coef*bet;
+    }
+
+    else if (extraBetState == true)
+    {
+        money = money + 2*coef*bet;
+    }
 }
 
 void Player::placeBet(int b)
@@ -56,6 +66,41 @@ void Player::resetCardNo()
     cardNo = 0;
 }
 
+void Player::setAceCount()
+{
+    aceCount = aceCount + 1;
+}
+
+void Player::reduceAceCount()
+{
+    aceCount = aceCount - 1;
+}
+
+void Player::resetAceCount()
+{
+    aceCount = 0;
+}
+
+void Player::setBlackJackStateTrue()
+{
+    blackJackState = true;
+}
+
+void Player::setBlackJackStateFalse()
+{
+    blackJackState = false;
+}
+
+void Player::setDoubleDownStateTrue()
+{
+    doubleDownState = true;
+}
+
+void Player::setDoubleDownStateFalse()
+{
+    doubleDownState = false;
+}
+
 QString Player::getCardString()
 {
     return cardString;
@@ -80,6 +125,7 @@ int Player::getCardNo()
     return cardNo;
 }
 
+// delay time function. Not to draw all of the cards directly.
 void Player::delay(int n)
 {
     QTime dieTime = QTime::currentTime().addSecs(n);
@@ -92,7 +138,22 @@ int Player::getCardSlot()
     return slot;
 }
 
+int Player::getAceCount()
+{
+    return aceCount;
+}
 
+bool Player::getBlackJackState()
+{
+    return blackJackState;
+}
+
+bool Player::getDoubleDownState()
+{
+    return doubleDownState;
+}
+
+// assesing card value and getting card image based on the string like "Js", "3d" etc.
 CardStruct Player::cardValue (QString card)
 {
 
@@ -231,7 +292,6 @@ else if (card == "Ac")
     cs.value = 11;
     cs.cardImage.load(":/resources/resources/Ac.gif");
 }
-
 
 
 else if ( card == "2d" )

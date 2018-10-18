@@ -16,12 +16,12 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void cleanLabels();
-
     void shuffle(QString deck1[], int len);
     QString* returnLargeDeck();
     void closeEvent(QCloseEvent *event);
     QPixmap pix;
     void keyPressEvent(QKeyEvent *event);
+
 
 
 
@@ -37,6 +37,8 @@ private slots:
     void on_resetButton_clicked();
 
     void on_infoButton_clicked();
+
+    void on_doubleDownButton_clicked();
 
 private:
     Ui::MainWindow *ui;

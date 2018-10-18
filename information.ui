@@ -30,16 +30,15 @@
    </property>
    <property name="text">
     <string>The game of Black Jack with 6 classical
-card decks. Dealer stays on 17. If player
-and dealer has the same value, dealer wins.  </string>
+card decks. Dealer stays on 17.</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>100</x>
      <y>0</y>
-     <width>208</width>
+     <width>253</width>
      <height>211</height>
     </rect>
    </property>
@@ -89,7 +88,9 @@ and dealer has the same value, dealer wins.  </string>
         <property name="text">
          <string>Enter - hit
 b - bet
-s - stay</string>
+s - stay
+d - double down
+r - reset</string>
         </property>
         <property name="scaledContents">
          <bool>false</bool>
@@ -103,7 +104,7 @@ s - stay</string>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
