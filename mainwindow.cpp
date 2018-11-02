@@ -110,11 +110,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     shuffle(largeDeck, 312);
 
 //  Large deck could be modified here for debug purposes.
-            largeDeck[0] = "Ad";
-            largeDeck[1] = "2s";
-            largeDeck[2] = "3d";
-            largeDeck[3] = "4c";
-            largeDeck[4] = "3d";
+//            largeDeck[0] = "Ad";
+//            largeDeck[1] = "2s";
+//            largeDeck[2] = "3d";
+//            largeDeck[3] = "4c";
+//            largeDeck[4] = "3d";
 //            largeDeck[5] = "Ac";
 //            largeDeck[6] = "Ad";
 //            largeDeck[7] = "8s";
