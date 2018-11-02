@@ -110,15 +110,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     shuffle(largeDeck, 312);
 
 //  Large deck could be modified here for debug purposes.
-//            largeDeck[0] = "Jd";
-//            largeDeck[1] = "7s";
-//            largeDeck[2] = "Ad";
-//            largeDeck[3] = "3c";
-//            largeDeck[4] = "Ad";
-//            largeDeck[5] = "4c";
-//            largeDeck[6] = "6d";
-//            largeDeck[7] = "2s";
-//            largeDeck[8] = "Qs";
+            largeDeck[0] = "Ad";
+            largeDeck[1] = "2s";
+            largeDeck[2] = "3d";
+            largeDeck[3] = "4c";
+            largeDeck[4] = "3d";
+//            largeDeck[5] = "Ac";
+//            largeDeck[6] = "Ad";
+//            largeDeck[7] = "8s";
+//            largeDeck[8] = "As";
 //            largeDeck[9] = "Ac";
 //            largeDeck[10] = "Ad";
 //            largeDeck[11] = "Ad";
@@ -183,6 +183,16 @@ void MainWindow::on_hitButton_clicked()
     p1.setCardNo();
     p1.setCardSlot();
 
+
+    if (p1.getAceCount() != 0)
+    {
+        ui -> scorePlayer -> setText(QString::number(p1.getCardSum()) + " or " + QString::number(p1.getCardSum() - 10));
+    }
+    else if (p1.getAceCount() == 0)
+    {
+        ui -> scorePlayer -> setText(QString::number(p1.getCardSum()));
+    }
+
     // if player scores less than 21 during "hit", do nothing.
     if (p1.getCardSum() <= 21)
     {
@@ -203,7 +213,7 @@ void MainWindow::on_hitButton_clicked()
         ui -> betButton -> setEnabled(true);
         ui -> resetButton -> setEnabled(true);
 
-        // make dealer and player ace count to 0 and black jack state to false, since new hame will start.
+        // make dealer and player ace count to 0 and black jack state to false, since new game will start.
         dealer.resetAceCount();
         dealer.setBlackJackStateFalse();
         p1.resetAceCount();
@@ -218,14 +228,23 @@ void MainWindow::on_hitButton_clicked()
     }
 
     // if player scores more than 21 during "hit" state and he has an ace.
-    else if (p1.getCardSum() > 21 && p1.getAceCount() != 0)
+    else if (p1.getCardSum() > 21)
     {
         // reduce the score by 10 and do not look at the ace again.
         p1.setCardSum(-10);
         p1.reduceAceCount();
 
+        if (p1.getAceCount() != 0 && p1.getCardSum() > 21)
+        {
+            ui -> scorePlayer -> setText(QString::number(p1.getCardSum() - p1.getAceCount()*10) );
+        }
+        else if (p1.getAceCount() == 0)
+        {
+            ui -> scorePlayer -> setText(QString::number(p1.getCardSum()));
+        }
+
         // if "hit" is pressed and the score more than 21 and ace is drawn.
-        if (p1.getCardSum() > 21)
+        if (p1.getCardSum() > 21 && p1.getAceCount() == 0)
         {
             ui -> labelCenter -> clear();
             ui -> labelCenter -> setText("Player busted!");
@@ -272,6 +291,8 @@ void MainWindow::on_betButton_clicked()
     p1.resetAceCount();
     p1.setBlackJackStateFalse();
     p1.setDoubleDownStateFalse();
+    ui -> scoreDealer -> setText(QString::number(dealer.getCardSum()));
+    ui -> scorePlayer -> setText(QString::number(p1.getCardSum()));
 
     pix.load(":/resources/resources/xx.gif");
 
@@ -338,7 +359,7 @@ void MainWindow::on_betButton_clicked()
         // if ace is present in hand, allow double down.
         else if (p1.getBet()*2 <= (p1.getMoney() + p1.getBet()) && p1.getAceCount() != 0)
         {
-                ui -> doubleDownButton -> setEnabled(true);
+            ui -> doubleDownButton -> setEnabled(true);
         }
 
         // place a face fown card for a dealer.
@@ -349,7 +370,7 @@ void MainWindow::on_betButton_clicked()
         {
             // setting a black jack state which is going to be compared with dealer's state.
             p1.setBlackJackStateTrue();
-
+            ui -> scorePlayer -> setText(QString::number(p1.getCardSum()));
             // if dealer does not have 10 or 11 valued card, award with black jack directly.
             if (dealer.getCardSum() < 10)
             {
@@ -380,7 +401,7 @@ void MainWindow::on_betButton_clicked()
         }
         dealer.setCardSum(dealer.cardValue(dealer.getCardString()).value);
         p1.setCardNo();
-        // ### end of player drawing second card.
+        // ### end of dealer drawing second card.
 
         // check if dealer has a black jack.
         if (dealer.getCardSum() == 21)
@@ -391,6 +412,17 @@ void MainWindow::on_betButton_clicked()
         qDebug() << "player score: " << p1.getCardSum();
         qDebug() << "dealer score: " << dealer.getCardSum();
         qDebug() << "Card No: " << p1.getCardNo();
+
+        ui -> scoreDealer -> setText(QString::number(dealer.getCardSum() - dealer.cardValue(dealer.getCardString()).value));
+
+        if (p1.getAceCount() > 0)
+        {
+            ui -> scorePlayer -> setText(QString::number(p1.getCardSum()) + " or " + QString::number(p1.getCardSum() - 10));
+        }
+        else if (p1.getAceCount() == 0)
+        {
+            ui -> scorePlayer -> setText(QString::number(p1.getCardSum()));
+        }
 
         ui -> hitButton -> setEnabled(true);
         ui -> stayButton -> setEnabled(true);
@@ -413,6 +445,26 @@ void MainWindow::on_stayButton_clicked()
     ui -> label22 -> clear();
     ui -> label22 -> setPixmap(dealer.cardValue(dealer.getCardString()).cardImage);
 
+    // show card score after flipping the second card.
+    ui -> scoreDealer -> setText(QString::number(dealer.getCardSum()));
+
+    if (dealer.getAceCount() != 0)
+    {
+        if (dealer.getAceCount() == 1)
+        {
+            ui -> scoreDealer -> setText( QString::number(dealer.getCardSum() - 10) + " or " + QString::number(dealer.getCardSum()) );
+        }
+        else if (dealer.getAceCount() == 2)
+        {
+            ui -> scoreDealer -> setText( QString::number(dealer.getCardSum() - 20) + " or " + QString::number(dealer.getCardSum() - 10) );
+        }
+
+    }
+    else if (dealer.getAceCount() == 0)
+    {
+        ui -> scoreDealer -> setText(QString::number(dealer.getCardSum()));
+    }
+
     // check the black jack states of player and dealer.
     // if dealer scores 21 and player does not...
     if (dealer.getBlackJackState() == true && p1.getBlackJackState() == false)
@@ -429,7 +481,6 @@ void MainWindow::on_stayButton_clicked()
         qDebug() << "dealer score: " << dealer.getCardSum();
         qDebug() << "player score: " << p1.getCardSum();
 
-
         dealer.setBlackJackStateFalse();
 
         if (p1.getMoney() == 0)
@@ -438,7 +489,6 @@ void MainWindow::on_stayButton_clicked()
             ui -> labelCenter -> setStyleSheet(QStringLiteral("QLabel{color: rgb(170, 0, 0);}"));
             ui -> labelCenter -> setText("Game over! :(");
         }
-
         return;
     }
 
@@ -567,7 +617,6 @@ void MainWindow::on_stayButton_clicked()
                 ui -> labelCenter -> setStyleSheet(QStringLiteral("QLabel{color: rgb(170, 0, 0);}"));
                 ui -> labelCenter -> setText("Game over! :(");
             }
-
             return;
         }
     }
@@ -587,6 +636,25 @@ void MainWindow::on_stayButton_clicked()
         // ### end of dealer drawing a card.
         media -> play();
         p1.setCardNo(); // player keeps track on how many cards have passed.
+
+
+
+        if (dealer.getAceCount() != 0 && dealer.getCardSum() > 21)
+        {
+            // if statements as in player...
+            ui -> scoreDealer -> setText(QString::number(dealer.getCardSum() - dealer.getAceCount()*10));
+        }
+        else if (dealer.getAceCount() != 0 && dealer.getCardSum()  < 21)
+        {
+            ui -> scoreDealer -> setText(QString::number(dealer.getCardSum()));
+        }
+        else if (dealer.getAceCount() == 0)
+        {
+            ui -> scoreDealer -> setText(QString::number(dealer.getCardSum()));
+        }
+
+
+
 
         // if dealer scores more than 21 without having an ace, he busts.
         if(dealer.getCardSum() > 21 && dealer.getAceCount() == 0)
@@ -615,6 +683,7 @@ void MainWindow::on_stayButton_clicked()
         {
             dealer.setCardSum(-10);
             dealer.reduceAceCount();
+            ui -> scoreDealer -> setText(QString::number(dealer.getCardSum()));
         }
 
         // if dealer scores between 17 and 21, he stays.
@@ -718,6 +787,8 @@ void MainWindow::on_resetButton_clicked()
     ui -> betEdit -> setValue(100);
     ui -> money_label -> setText("$"+QString::number(p1.getMoney()));
     ui -> betButton -> setEnabled(true);
+    ui -> scoreDealer -> setText("0");
+    ui -> scorePlayer -> setText("0");
     dealer.resetCardSum();
 }
 
@@ -810,6 +881,9 @@ void MainWindow::on_doubleDownButton_clicked()
         p1.setCardSum(-20);
         p1.resetAceCount();
     }
+
+    ui -> scorePlayer -> setText(QString::number(p1.getCardSum()));
+
     p1.delay(1);
     ui -> stayButton -> clicked();
     p1.setDoubleDownStateFalse();
